@@ -10,10 +10,11 @@ class Desa extends Model
     use HasFactory;
         protected $guarded = [];
 
-        public function pemilih():BelongsTo{
+        public function pemilih()
+        {
 
-            return this->BelongsTo(pemilih::class,'id','desa');
-    
+            return $this->HasMany(Pemilih::class);
+
         }
-        
+
 }

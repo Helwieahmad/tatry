@@ -10,10 +10,11 @@ class Rt extends Model
     use HasFactory;
         protected $guarded = [];
 
-        public function pemilih():BelongsTo{
+        public function pemilih()
 
-            return this->BelongsTo(pemilih::class,'id','no_rt');
-    
+        {
+            return $this->HasMany(Pemilih::class);
+
         }
 
 }

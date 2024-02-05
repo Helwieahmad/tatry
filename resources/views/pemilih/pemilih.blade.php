@@ -82,7 +82,7 @@
                                                                     @endforeach
                                                             </select>
                                                         </div>
-                                                        <div class="input-group input-group-outline my-3"> 
+                                                        <div class="input-group input-group-outline my-3">
                                                             <select name="kordinator" id="kordinator" class="form-control">
                                                                 <option value="0">Pilih Kordinator</option>
                                                                     @foreach($kordinator as $kordinator)
@@ -127,6 +127,8 @@
                                                 <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">No</th>
                                                 <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Action</th>
                                                 <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Nama Pemilih</th>
+                                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Kabupaten</th>
+                                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Kecamatan</th>
                                                 <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Desa/Kelurahan</th>
                                                 <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">RT</th>
                                                 <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">RW</th>
@@ -171,18 +173,20 @@
                         dom: 'lfrtip',
                         ajax: "{{ route('pemilih.index') }}",
                         columns: [
-                        { data: 'id', name: 'id' },
-                        { data: 'action', name: 'action' },
-                        { data: 'nama_pemilih', name: 'nama_pemilih' },
-                        { data: 'desa', name: 'desa.nama_desa' },
-                        { data: 'no_rt', name: 'rt.no_rt' },
-                        { data: 'no_rw', name: 'rw.no_rw' },
-                        { data: 'no_tps', name: 'tps.no_tps' },
-                        { data: 'kordinator', name: 'kordinator.nama_kordinator'},
-                        { data: 'keterangan', name: 'keterangan'}
-                    ],
+                                    {data: 'DT_RowIndex', searchable: false, orderable: false},
+                                    { data: 'action', name: 'action' },
+                                    { data: 'nama_pemilih', name: 'nama_pemilih' },
+                                    { data: 'kabupaten', name: 'kabupaten' },
+                                    { data: 'kecamatan', name: 'kecamatan.nama_kecamatan' },
+                                    { data: 'desa', name: 'desa.nama_desa' },
+                                    { data: 'no_rt', name: 'rt.no_rt' },
+                                    { data: 'no_rw', name: 'rw.no_rw' },
+                                    { data: 'no_tps', name: 'tps.no_tps' },
+                                    { data: 'kordinator', name: 'kordinator.nama_kordinator'},
+                                    { data: 'keterangan', name: 'keterangan'}
+                                ],
                     order: [[0, 'desc']]
-                    
+
                 });
 
                 //save data untuk edit atau create
@@ -220,6 +224,7 @@
                         $('#id').val(data.id);
                         $('#nama_pemilih').val(data.nama_pemilih);
                         $('#kabupaten').val(data.kabupaten);
+                        $('#kecamatan').val(data.kecamatan);
                         $('#desa').val(data.desa);
                         $('#no_rt').val(data.no_rt);
                         $('#no_rw').val(data.no_rw);

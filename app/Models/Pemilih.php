@@ -4,60 +4,59 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Pemilih extends Model
 {
     use HasFactory;
-        protected $guarded = [];
+        protected $fillable = [];
 
-        public function kabupaten():HasOne
+        public function kabupaten()
         {
 
-            return this->HasOne(kabupaten::class,'kabupaten','id');
+            return $this->BeLongsTo(Kabupaten::class,'kabupaten','id');
 
         }
 
-        public function kecamatan():HasOne
+        public function kecamatan()
         {
 
-            return this->HasOne(kecamatan::class,'kecamatan','id');
+            return $this->BeLongsTo(Kecamatan::class);
 
         }
 
-        public function desa():HasOne
+        public function desa()
         {
 
-            return this->HasOne(desa::class,'desa','id');
+            return $this->BeLongsTo(Desa::class);
 
         }
 
-        public function rt():HasOne
+        public function rt()
         {
 
-            return this->HasOne(rt::class,'no_rt','id');
+            return $this->BeLongsTo(Rt::class);
 
         }
 
-        public function rw():HasOne
+        public function rw()
         {
 
-            return this->HasOne(rw::class,'no_rw','id');
+            return $this->BeLongsTo(Rw::class);
 
         }
 
-        public function tps():HasOne
+        public function tps()
         {
 
-            return this->HasOne(tps::class,'no_tps','id');
+            return $this->BeLongsTo(Tps::class);
 
         }
 
-        public function kordinator():HasOne
+        public function kordinator()
         {
 
-            return this->HasOne(kordinator::class,'kordinator','id');
+            return $this->BeLongsTo(Cordinator::class);
 
         }
-                        
+
 }

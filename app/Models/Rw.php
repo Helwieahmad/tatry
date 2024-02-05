@@ -10,9 +10,10 @@ class Rw extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function pemilih():BelongsTo{
+    public function pemilih()
+    {
 
-        return this->BelongsTo(pemilih::class,'id','no_rw');
+        return $this->HasMany(Pemilih::class);
 
     }
 

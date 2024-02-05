@@ -4,18 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
- 
+
 
 class Kabupaten extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-    public function pemilih():BelongsTo{
+    public function pemilih()
+    {
 
-        return this->BelongsTo(pemilih::class,'id','kabupaten');
+        return $this->HasMany(Pemilih::class);
 
     }
-    
+
 }
