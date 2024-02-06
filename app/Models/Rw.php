@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Pemilih;
 class Rw extends Model
 {
     use HasFactory;
@@ -13,7 +13,7 @@ class Rw extends Model
     public function pemilih()
     {
 
-        return $this->HasMany(Pemilih::class);
+        return $this->HasMany(Pemilih::class,'id','id_rw');
 
     }
 

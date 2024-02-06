@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cordinator;
+use App\Models\Desa;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -14,10 +15,10 @@ class CordinatorController extends Controller
      */
     public function index(Request $request)
     {
-        //medapatkan semua data category
-        $cordinator = Cordinator::all();
+                //medapatkan semua data category
+                $cordinator = Cordinator::with('desa');
         if ($request->ajax()) {
-            return Datatables::of($cordinator)
+            return Datatables::eloquent($cordinator)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     //kita tambahkan button edit dan hapus
@@ -31,7 +32,9 @@ class CordinatorController extends Controller
                 ->make(true);
         }
 
-        return view('cordinator.cordinator',compact('cordinator'));
+        $c_desa = Desa::all();
+
+        return view('cordinator.cordinator',compact('cordinator','c_desa'));
     }
 
 
@@ -43,12 +46,11 @@ class CordinatorController extends Controller
                 'nama_kordinator' => $request->nama_kordinator,
                 'username' => $request->username,
                 'password' => $request->password,
-                'nama_desa' => $request->nama_desa,
+                'id_desa' => $request->id_desa,
                 'no_tlpn' => $request->no_tlpn,
                 'keterangan' => $request->keterangan,
             ]
         );
-
         return response()->json(['success' => 'Data Sukses Ditambahkan.']);
     }
 

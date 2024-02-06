@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama_kordinator');
             $table->string('username');
             $table->string('password');
-            $table->integer('nama_desa');
+            $table->integer('id_desa');
             $table->string('no_tlpn');
             $table->string('keterangan');
             $table->timestamps();

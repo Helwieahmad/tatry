@@ -43,33 +43,14 @@
                                                             <input type="password" name="password" id="password" class="form-control">
                                                         </div>
                                                         <div class="input-group input-group-outline my-3">
-                                                            <select class="form-select form-select-lg" name="nama_desa" id="nama_desa">
-                                                                <option selected>Pilih Kelurahan/Desa</option>
-                                                                <option value="1">1. Asembagus</option>
-                                                                <option value="2">2. Awar-awar</option>
-                                                                <option value="3">3. Bantal</option>
-                                                                <option value="4">4. Gudang</option>
-                                                                <option value="5">5. Kedunglo</option>
-                                                                <option value="6">6. Kertosari</option>
-                                                                <option value="7">7. Mojosari</option>
-                                                                <option value="8">8. Perante</option>
-                                                                <option value="9">9. Trigonco</option>
-                                                                <option value="10">10. Wringin Anom</option>
-                                                                <option value="11">11. Banyuputih</option>
-                                                                <option value="12">12. Sumberejo</option>
-                                                                <option value="13">13. Sumberanyar</option>
-                                                                <option value="14">14. Sumberwaru</option>
-                                                                <option value="15">15. Wonorejo</option>
-                                                                <option value="16">16. Agel</option>
-                                                                <option value="17">17. Curah Kalak</option>
-                                                                <option value="18">18. Gadingan</option>
-                                                                <option value="19">19. Jangkar</option>
-                                                                <option value="20">20. Kumbangsari</option>
-                                                                <option value="18">18. Palangan</option>
-                                                                <option value="19">19. Pesanggrahan</option>
-                                                                <option value="20">20. Sopet</option>
-                                                                </select>
-                                                        </div><div class="input-group input-group-outline my-3">
+                                                            <select name="id_desa" id="id_desa" class="form-control">
+                                                                <option value="0">Pilih Desa</option>
+                                                                    @foreach($c_desa as $desa)
+                                                                            <option value="{{ $desa->id }}"> {{ $desa->nama_desa }}</option>
+                                                                    @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-group input-group-outline my-3">
                                                             <label class="form-label">No Telepon</label>
                                                             <input type="number"  name="no_tlpn" id="no_tlpn" class="form-control">
                                                         </div>
@@ -145,18 +126,17 @@
                         processing: true,
                         autoWidth: false,
                         responsive: true,
-                        processing: true,
                         serverSide: true,
                         scrollX:    true,
                         dom: 'lfrtip',
                         ajax: "{{ route('cordinator.index') }}",
-                        columns: [{  data: 'DT_RowIndex',
-                        searchable: false},
+                        columns: [
+                        {data: 'DT_RowIndex', searchable: false, orderable: false},
                         { data: 'action', name: 'action' },
                         { data: 'nama_kordinator', name: 'nama_kordinator' },
                         { data: 'username', name: 'username' },
                         { data: 'password', name: 'password' },
-                        { data: 'nama_desa', name: 'nama_desa' },
+                        { data: 'desa.nama_desa', name: 'desa.nama_desa' },
                         { data: 'no_tlpn', name: 'no_tlpn'}
                     ],
                     order: [[0, 'desc']]
@@ -198,7 +178,7 @@
                         $('#nama_kordinator').val(data.nama_kordinator);
                         $('#username').val(data.username);
                         $('#password').val(data.password);
-                        $('#nama_desa').val(data.nama_desa);
+                        $('#id_desa').val(data.id_desa);
                         $('#no_tlpn').val(data.no_tlpn);
                         $('#keterangan').val(data.keterangan);
                     })
@@ -221,9 +201,7 @@
                         }
                     });
 
-
                     //memunculkan form add
-
                     function addForm() {
                     $("#modal-form").modal('show');
                     $('#id').val('');

@@ -24,8 +24,8 @@ class PemilihController extends Controller
         //medapatkan semua data category
 
         $pemilih = Pemilih::with('kabupaten','kecamatan','desa','rt','rw','tps','kordinator');
-                if ($request->ajax()) {
-            return Datatables::of($pemilih)
+            if ($request->ajax()) {
+            return Datatables::eloquent($pemilih)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     //kita tambahkan button edit dan hapus
@@ -56,13 +56,13 @@ class PemilihController extends Controller
             ['id' => $request->id],
             [
                 'nama_pemilih' => $request->nama_pemilih,
-                'kabupaten' => $request->kabupaten,
-                'kecamatan' => $request->kecamatan,
-                'desa' => $request->desa,
-                'no_rt' => $request->no_rt,
-                'no_rw' => $request->no_rw,
-                'no_tps' => $request->no_tps,
-                'kordinator' => $request->kordinator,
+                'id_kabupaten' => $request->id_kabupaten,
+                'id_kecamatan' => $request->id_kecamatan,
+                'id_desa' => $request->id_desa,
+                'id_rt' => $request->id_rt,
+                'id_rw' => $request->id_rw,
+                'id_tps' => $request->id_tps,
+                'id_kordinator' => $request->id_kordinator,
                 'keterangan' => $request->keterangan,
             ]
         );

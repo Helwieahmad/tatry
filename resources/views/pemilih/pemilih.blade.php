@@ -35,7 +35,7 @@
                                                         </div>
                                                         <div class="input-group input-group-outline my-3">
                                                             <label class="form-label"></label>
-                                                            <select name="kabupaten" id="kabupaten" class="form-control">
+                                                            <select name="id_kabupaten" id="id_kabupaten" class="form-control">
                                                                     <option disabled selected>Pilih Kabupaten</option>
                                                                         @foreach($kabupaten as $kab)
                                                                                 <option value="{{ $kab->id }}"> {{ $kab->nama_kabupaten }} </option>
@@ -43,48 +43,48 @@
                                                                 </select>
                                                         </div>
                                                         <div class="input-group input-group-outline my-3">
-                                                            <select name="kecamatan" id="kecamatan" class="form-control">
-                                                                <option value="0">Pilih Kecamatan</option>
+                                                            <select name="id_kecamatan" id="id_kecamatan" class="form-control">
+                                                                <option disabled selected>Pilih Kecamatan</option>
                                                                     @foreach($kecamatan as $kec)
                                                                             <option value="{{ $kec->id }}"> {{ $kec->nama_kecamatan }}</option>
                                                                     @endforeach
                                                             </select>
                                                         </div>
                                                         <div class="input-group input-group-outline my-3">
-                                                            <select name="desa" id="desa" class="form-control">
-                                                                <option value="0">Pilih Desa</option>
+                                                            <select name="id_desa" id="id_desa" class="form-control">
+                                                                <option disabled selected>Pilih Desa</option>
                                                                     @foreach($desa as $desa)
                                                                             <option value="{{ $desa->id }}"> {{ $desa->nama_desa }}</option>
                                                                     @endforeach
                                                             </select>
                                                         </div>
                                                         <div class="input-group input-group-outline my-3">
-                                                            <select name="no_rt" id="no_rt" class="form-control">
-                                                                <option value="0">Pilih No RT</option>
+                                                            <select name="id_rt" id="id_rt" class="form-control">
+                                                                <option disabled selected>Pilih No RT</option>
                                                                     @foreach($rt as $rt)
                                                                             <option value="{{ $rt->id }}"> {{ $rt->no_rt }}</option>
                                                                     @endforeach
                                                             </select>
                                                         </div>
                                                         <div class="input-group input-group-outline my-3">
-                                                            <select name="no_rw" id="no_rw" class="form-control">
-                                                                    <option value="0">Pilih No RW</option>
+                                                            <select name="id_rw" id="id_rw" class="form-control">
+                                                                    <option disabled selected>Pilih No RW</option>
                                                                         @foreach($rw as $rw)
                                                                                 <option value="{{ $rw->id }}"> {{ $rw->no_rw }}</option>
                                                                         @endforeach
                                                                 </select>
                                                         </div>
                                                         <div class="input-group input-group-outline my-3">
-                                                            <select name="no_tps" id="no_tps" class="form-control">
-                                                                <option value="0">Pilih No TPS</option>
+                                                            <select name="id_tps" id="id_tps" class="form-control">
+                                                                <option disabled selected>Pilih No TPS</option>
                                                                     @foreach($tps as $tps)
                                                                             <option value="{{ $tps->id }}"> {{ $tps->no_tps }}</option>
                                                                     @endforeach
                                                             </select>
                                                         </div>
                                                         <div class="input-group input-group-outline my-3">
-                                                            <select name="kordinator" id="kordinator" class="form-control">
-                                                                <option value="0">Pilih Kordinator</option>
+                                                            <select name="id_kordinator" id="id_kordinator" class="form-control">
+                                                                <option disabled selected>Pilih Kordinator</option>
                                                                     @foreach($kordinator as $kordinator)
                                                                             <option value="{{ $kordinator->id }}"> {{ $kordinator->nama_kordinator }}</option>
                                                                     @endforeach
@@ -176,13 +176,13 @@
                                     {data: 'DT_RowIndex', searchable: false, orderable: false},
                                     { data: 'action', name: 'action' },
                                     { data: 'nama_pemilih', name: 'nama_pemilih' },
-                                    { data: 'kabupaten', name: 'kabupaten' },
-                                    { data: 'kecamatan', name: 'kecamatan.nama_kecamatan' },
-                                    { data: 'desa', name: 'desa.nama_desa' },
-                                    { data: 'no_rt', name: 'rt.no_rt' },
-                                    { data: 'no_rw', name: 'rw.no_rw' },
-                                    { data: 'no_tps', name: 'tps.no_tps' },
-                                    { data: 'kordinator', name: 'kordinator.nama_kordinator'},
+                                    { data: 'kabupaten.nama_kabupaten', name: 'kabupaten.nama_kabupaten' },
+                                    { data: 'kecamatan.nama_kecamatan', name: 'kecamatan.nama_kecamatan' },
+                                    { data: 'desa.nama_desa', name: 'desa.nama_desa' },
+                                    { data: 'rt.no_rt', name: 'rt.no_rt' },
+                                    { data: 'rw.no_rw', name: 'rw.no_rw' },
+                                    { data: 'tps.no_tps', name: 'tps.no_tps' },
+                                    { data: 'kordinator.nama_kordinator', name: 'kordinator.nama_kordinator'},
                                     { data: 'keterangan', name: 'keterangan'}
                                 ],
                     order: [[0, 'desc']]
@@ -223,13 +223,13 @@
                         $('#modal-form').modal('show');
                         $('#id').val(data.id);
                         $('#nama_pemilih').val(data.nama_pemilih);
-                        $('#kabupaten').val(data.kabupaten);
-                        $('#kecamatan').val(data.kecamatan);
-                        $('#desa').val(data.desa);
-                        $('#no_rt').val(data.no_rt);
-                        $('#no_rw').val(data.no_rw);
-                        $('#no_tps').val(data.no_tps);
-                        $('#kordinator').val(data.kordinator);
+                        $('#id_kabupaten').val(data.id_kabupaten);
+                        $('#id_kecamatan').val(data.id_kecamatan);
+                        $('#id_desa').val(data.id_desa);
+                        $('#id_rt').val(data.id_rt);
+                        $('#id_rw').val(data.id_rw);
+                        $('#id_tps').val(data.id_tps);
+                        $('#id_kordinator').val(data.id_kordinator);
                         $('#keterangan').val(data.keterangan);
                     })
                 });
@@ -250,7 +250,6 @@
                             });
                         }
                     });
-
 
                     //memunculkan form add
 

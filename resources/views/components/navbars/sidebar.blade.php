@@ -5,7 +5,7 @@
     <ul class="navbar-nav">
     <hr class="horizontal light mt-0">
         <li class="nav-item">
-            <a href="#" class="nav-link text-white"role="button" aria-expanded="false">
+            <a href="/dashboard" class="nav-link text-white"role="button" aria-expanded="false">
                 <i class="material-icons-round">dashboard</i>
                 <span class="nav-link-text ms-2 ps-1">Dashboards</span>
             </a>

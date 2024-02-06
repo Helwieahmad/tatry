@@ -27,7 +27,7 @@ class CordinatorFactory extends Factory
             'nama_kordinator' => fake()->name(),
             'username' => fake()->name(),
             'password' => fake()->name(),
-            'nama_desa' => fake()->randomDigit(),
+            'id_desa' => fake()->randomDigit(),
             'no_tlpn' => fake()->phoneNumber(),
             'keterangan' => fake()->realText(),
 

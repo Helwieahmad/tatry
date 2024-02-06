@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Cordinator;
+use App\Models\Pemilih;
 class Desa extends Model
 {
     use HasFactory;
@@ -13,7 +14,12 @@ class Desa extends Model
         public function pemilih()
         {
 
-            return $this->HasMany(Pemilih::class);
+            return $this->HasMany(Pemilih::class,'id','id_desa');
+
+        }
+        public function kordinator(){
+
+            return $this->HasMany(Cordinator::class,'id','id_desa');
 
         }
 

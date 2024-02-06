@@ -7,12 +7,12 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\CordinatorController;
 use App\Http\Controllers\PemilihController;
-use App\Http\Controllers\TpsController;
+use App\Http\Controllers\KabupatenController;
+use App\Http\Controllers\KecamatanController;
+use App\Http\Controllers\DesaController;
 use App\Http\Controllers\RtController;
 use App\Http\Controllers\RwController;
-use App\Http\Controllers\DesaController;
-use App\Http\Controllers\KecamatanController;
-use App\Http\Controllers\KabupatenController;
+use App\Http\Controllers\TpsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,8 +48,8 @@ Route::resource('cordinator', CordinatorController::class, ['except' => [
     'create', 'update','show'
 ]]);
 Route::resource('pemilih', PemilihController::class, ['except' => [
-    'create', 'update','show'
-]]);
+    'create', 'update','show']]
+    );
 Route::resource('kabupaten', KabupatenController::class, ['except' => [
     'create', 'update', 'show']]
     );

@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('pemilihs', function (Blueprint $table) {
             $table->id();
             $table->string('nama_pemilih')->unique();
-            $table->integer('kabupaten');
-            $table->integer('kecamatan');
-            $table->integer('desa');
-            $table->integer('no_rt');
-            $table->integer('no_rw');
-            $table->integer('no_tps');
-            $table->integer('kordinator');
+            $table->integer('id_kabupaten');
+            $table->integer('id_kecamatan');
+            $table->integer('id_desa');
+            $table->integer('id_rt');
+            $table->integer('id_rw');
+            $table->integer('id_tps');
+            $table->integer('id_kordinator');
             $table->string('keterangan');
             $table->timestamps();
         });

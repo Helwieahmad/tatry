@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Pemilih;
 
 class Kecamatan extends Model
 {
@@ -14,7 +14,7 @@ class Kecamatan extends Model
     public function pemilih()
     {
 
-        return $this->HasMany(Pemilih::class);
+        return $this->HasMany(Pemilih::class,'id','id_kecamatan');
 
     }
 
